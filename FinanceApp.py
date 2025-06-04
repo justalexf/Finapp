@@ -25,6 +25,13 @@ class App(ctk.CTk):
             height = 70
             )
         self.portfolio_button.grid(row=1, column=0, padx=20, pady=20, sticky="ew", columnspan=2)
+        self.paycheck_button = ctk.CTkButton(self, 
+            text="Paycheck tracker", 
+            command=self.button_callback,
+            width = (width - 40),
+            height = 70
+            )
+        self.paycheck_button.grid(row=2, column=0, padx=20, pady=20, sticky="ew", columnspan=2)
     def button_callback(self): # function determines what the command parameter does when a button is pressed 
         print("button pressed")
 
