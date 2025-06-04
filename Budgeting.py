@@ -3,7 +3,7 @@ import customtkinter as ctk
 def create_budget_button(App, window_width):
     create_budget_button = ctk.CTkButton(App,
             text="Budgeting", 
-            command=button_callback,
+            command=create_budget_window,
             width = (window_width - 40),
             height = 70
             )
@@ -11,7 +11,9 @@ def create_budget_button(App, window_width):
 
     return create_budget_button
 
-def button_callback(): # function determines what the command parameter does when a button is pressed 
-    print("button pressed")
+def create_budget_window(): # function determines what the command parameter does when a button is pressed 
+    budget_window = ctk.CTkToplevel()
+    budget_window.title("Budgeting")
+    budget_window.geometry("800x400") # temporary size must determine position and size of the screen 
 
 
