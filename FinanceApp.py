@@ -8,7 +8,7 @@ class App(ctk.CTk):
         screen_height = self.winfo_screenheight() # Determines the user window screen height
         x = (screen_width - width) // 2
         y = (screen_height - height) // 2
-        self.geometry(f"{width}x{height}+{x}+{y}") # centers the window 
+        self.geometry(f"{width}x{height}+{x}+{y}") # Centers the window 
         ctk.set_default_color_theme("green") 
         # self.grid_columnconfigure((0, 1), weight=1) #idk what this does 
         self.budget_button = ctk.CTkButton(self, 
