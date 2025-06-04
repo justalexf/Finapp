@@ -2,8 +2,8 @@ import customtkinter as ctk
 
 class App(ctk.CTk):
     def __init__(self, width, height): # This is the constructor method from other classes 
-        super().__init__() #the super function calls all the same functions from the parent class customtkinter in this case 
-        self.title("Finapp") # sets object title 
+        super().__init__() # The super function calls all the same functions from the parent class customtkinter in this case 
+        self.title("Finapp") # Sets object title 
         screen_width = self.winfo_screenwidth() # Determines the user window screen width
         screen_height = self.winfo_screenheight() # Determines the user window screen height
         x = (screen_width - width) // 2
