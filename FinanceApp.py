@@ -20,8 +20,6 @@ class App(ctk.CTk):
 app = App(480,520) # Default constructor   
 app.mainloop()
 
-
-
 # NON CLASS WAY OF DOING THINGS NEVER RECOMMENDED 
 # # An app is a window with a number of widgets stacked onto each other 
 # # The main window on which the text and different functionalities of the app are is called the 
