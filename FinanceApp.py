@@ -1,5 +1,7 @@
 import customtkinter as ctk
-from Budgeting import budget_button
+from Budgeting import create_budget_button
+from Portfolio import create_portfolio_button
+from Paycheck import create_paycheck_button
 class App(ctk.CTk):
     def __init__(self, window_width, window_height): # This is the constructor method from other classes 
         super().__init__() # The super function calls all the same functions from the parent class customtkinter in this case 
@@ -11,25 +13,9 @@ class App(ctk.CTk):
         self.geometry(f"{window_width}x{window_height}+{x}+{y}") # Centers the window 
         ctk.set_default_color_theme("green") 
         # self.grid_columnconfigure((0, 1), weight=1) #idk what this does 
-        budget_buttonn = budget_button(self, window_width)
-        portfolio_button = ctk.CTkButton(self, 
-            text="Portfolio", 
-            command=self.button_callback,
-            width = (window_width - 40),
-            height = 70
-            )
-        portfolio_button.grid(row=1, column=0, padx=20, pady=20, sticky="ew", columnspan=2)
-        paycheck_button = ctk.CTkButton(self, 
-            text="Paycheck tracker", 
-            command=self.button_callback,
-            width = (window_width - 40),
-            height = 70
-            )
-        paycheck_button.grid(row=2, column=0, padx=20, pady=20, sticky="ew", columnspan=2)
-
-    def button_callback(self): # function determines what the command parameter does when a button is pressed 
-        print("button pressed")
-
+        budget_button = create_budget_button(self, window_width)
+        portfolio_button = create_portfolio_button(self, window_width)
+        paycheck_button = create_paycheck_button(self,window_width)
 
 app = App(480,520) # Default constructor   
 app.mainloop()
