@@ -1,39 +1,35 @@
 import customtkinter as ctk
-
+from Budgeting import budget_button
 class App(ctk.CTk):
-    def __init__(self, width, height): # This is the constructor method from other classes 
+    def __init__(self, window_width, window_height): # This is the constructor method from other classes 
         super().__init__() # The super function calls all the same functions from the parent class customtkinter in this case 
         self.title("Finapp") # Sets object title 
         screen_width = self.winfo_screenwidth() # Determines the user window screen width
         screen_height = self.winfo_screenheight() # Determines the user window screen height
-        x = (screen_width - width) // 2
-        y = (screen_height - height) // 2
-        self.geometry(f"{width}x{height}+{x}+{y}") # Centers the window 
+        x = (screen_width - window_width) // 2
+        y = (screen_height - window_height) // 2
+        self.geometry(f"{window_width}x{window_height}+{x}+{y}") # Centers the window 
         ctk.set_default_color_theme("green") 
         # self.grid_columnconfigure((0, 1), weight=1) #idk what this does 
-        self.budget_button = ctk.CTkButton(self, 
-            text="Budgeting", 
-            command=self.button_callback,
-            width = (width - 40),
-            height = 70
-            )
-        self.budget_button.grid(row=0, column=0, padx=20, pady=20, sticky="ew", columnspan=2)
-        self.portfolio_button = ctk.CTkButton(self, 
+        budget_buttonn = budget_button(self, window_width)
+        portfolio_button = ctk.CTkButton(self, 
             text="Portfolio", 
             command=self.button_callback,
-            width = (width - 40),
+            width = (window_width - 40),
             height = 70
             )
-        self.portfolio_button.grid(row=1, column=0, padx=20, pady=20, sticky="ew", columnspan=2)
-        self.paycheck_button = ctk.CTkButton(self, 
+        portfolio_button.grid(row=1, column=0, padx=20, pady=20, sticky="ew", columnspan=2)
+        paycheck_button = ctk.CTkButton(self, 
             text="Paycheck tracker", 
             command=self.button_callback,
-            width = (width - 40),
+            width = (window_width - 40),
             height = 70
             )
-        self.paycheck_button.grid(row=2, column=0, padx=20, pady=20, sticky="ew", columnspan=2)
+        paycheck_button.grid(row=2, column=0, padx=20, pady=20, sticky="ew", columnspan=2)
+
     def button_callback(self): # function determines what the command parameter does when a button is pressed 
         print("button pressed")
+
 
 app = App(480,520) # Default constructor   
 app.mainloop()
