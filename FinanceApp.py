@@ -22,15 +22,15 @@ class App(ctk.CTk):
          # List of all the buttons 
         listButtons = [budget_button,portfolio_button,paycheck_button]
 
-        self.grid_columnconfigure(0, weight=1) # Makes buttons stretch horizontally WORKS
+        self.grid_columnconfigure(0, weight=1) # Makes buttons stretch HORIZONTALLY
         numberOfButtons = 0 # row number
 
-        #Loops through every button in the list and dynamically resizes them 
+        #Loops through every button in the list and dynamically resizes them VERTICALLY
         for button in listButtons:
             self.grid_rowconfigure(numberOfButtons, weight=1 )
             numberOfButtons += 1
 
-app = App(480,520) # Default constructor  
+app = App(300,350) # Default constructor  
 
 app.mainloop()
 
