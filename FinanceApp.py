@@ -1,3 +1,4 @@
+from tkinter import Grid
 import customtkinter as ctk
 from Budgeting import create_budget_button
 from Portfolio import create_portfolio_button
@@ -12,12 +13,25 @@ class App(ctk.CTk):
         y = (screen_height - window_height) // 2
         self.geometry(f"{window_width}x{window_height}+{x}+{y}") # Centers the window 
         ctk.set_default_color_theme("green") 
-        # self.grid_columnconfigure((0, 1), weight=1) #idk what this does 
+        
+        # Create buttons
         budget_button = create_budget_button(self, window_width)
         portfolio_button = create_portfolio_button(self, window_width)
         paycheck_button = create_paycheck_button(self,window_width)
 
-app = App(480,520) # Default constructor   
+         # List of all the buttons 
+        listButtons = [budget_button,portfolio_button,paycheck_button]
+
+        self.grid_columnconfigure(0, weight=1) # Makes buttons stretch horizontally WORKS
+        numberOfButtons = 0 # row number
+
+        #Loops through every button in the list and dynamically resizes them 
+        for button in listButtons:
+            self.grid_rowconfigure(numberOfButtons, weight=1 )
+            numberOfButtons += 1
+
+app = App(480,520) # Default constructor  
+
 app.mainloop()
 
 # NON CLASS WAY OF DOING THINGS NEVER RECOMMENDED 
