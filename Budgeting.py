@@ -20,7 +20,7 @@ def create_budget_settings_window(parent): # function determines what the comman
     #Attributes
     budget_window = ctk.CTkToplevel(parent)
     budget_window.title("Budgeting")
-    budget_window.geometry("400x450")
+    budget_window.geometry("450X500")
     # Allow column 0 to stretch 
     budget_window.grid_columnconfigure(0, weight=1)
     # Row 0: Settings Label
@@ -38,7 +38,7 @@ def create_budget_settings_window(parent): # function determines what the comman
         budget_window,
         text="Initial Account Balance",
         text_color="white",
-        font=("Bold", 16),
+        font=("Bold", 20),
         anchor="w"
     )
     initial_account_balance.grid(row=1, column=0, padx=20, pady=(10, 5), sticky="w")
@@ -52,21 +52,28 @@ def create_budget_settings_window(parent): # function determines what the comman
         budget_window,
         text="Budgeting rule ( Needs / Wants / Investing )",
         text_color="white",
-        font=("Bold", 16),
+        font=("Bold", 20),
         anchor="w"
     )
     amount_label.grid(row=3, column=0, padx=20, pady=(5, 10), sticky="w")
 
-    #Row 4: Budgeting rule frame with checkbox
+    #Row 4: Budgeting rule frame with radio button
     budgeting_frame = ctk.CTkFrame(budget_window)
     budgeting_frame.grid(row=4, column=0, padx=(20, 20), pady=(20, 30), sticky="nsew")
-    checkbox_1 = ctk.CTkCheckBox(budgeting_frame,
-                                 text = "70/10/20")
-    checkbox_1.grid(row=0, column=0, pady=(20, 0), padx=20, sticky="n")
-    checkbox_2 = ctk.CTkCheckBox(budgeting_frame,
-                                 text = "40/20/40")
-    checkbox_2.grid(row=1, column=0, pady=(20, 0), padx=20, sticky="n")
-    checkbox_3 = ctk.CTkCheckBox(budgeting_frame,
-                                 text = "50/20/30")
-    checkbox_3.grid(row=2, column=0, pady=20, padx=20, sticky="n")
+    budget_var = ctk.StringVar(value="other")
+    option_1 = ctk.CTkRadioButton(budgeting_frame,
+                                 text = "70/10/20",
+                                 value="70/10/20",
+                                 variable=budget_var)
+    option_1.grid(row=0, column=0, pady=(20, 0), padx=20, sticky="n")
+    option_2 = ctk.CTkRadioButton(budgeting_frame,
+                                 text = "40/20/40",
+                                 value= "40/20/40",
+                                 variable=budget_var)
+    option_2.grid(row=1, column=0, pady=(20, 0), padx=20, sticky="n")
+    option_3 = ctk.CTkRadioButton(budgeting_frame,
+                                 text = "50/20/30",
+                                 value= "50/20/30",
+                                 variable=budget_var)
+    option_3.grid(row=2, column=0, pady=20, padx=20, sticky="n")
 
