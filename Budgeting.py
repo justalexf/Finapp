@@ -62,20 +62,20 @@ def create_budget_settings_window(parent): # function determines what the comman
     budgeting_frame.grid(row=4, column=0, padx=(20, 20), pady=(20, 30), sticky="nsew")
     budget_var = ctk.StringVar(value="other")
     option_1 = ctk.CTkRadioButton(budgeting_frame,
-                                 text = "70/10/20",
+                                 text = "70/10/20 - Focus primarily on your needs",
                                  value="70/10/20",
                                  variable=budget_var)
-    option_1.grid(row=0, column=0, pady=(20, 0), padx=20, sticky="n")
+    option_1.grid(row=0, column=0, pady=(20, 0), padx=20, sticky="w")
     option_2 = ctk.CTkRadioButton(budgeting_frame,
-                                 text = "40/20/40",
+                                 text = "40/20/40 - Investing is very important",
                                  value= "40/20/40",
                                  variable=budget_var)
-    option_2.grid(row=1, column=0, pady=(20, 0), padx=20, sticky="n")
+    option_2.grid(row=1, column=0, pady=(20, 0), padx=20, sticky="w")
     option_3 = ctk.CTkRadioButton(budgeting_frame,
-                                 text = "50/20/30",
+                                 text = "50/20/30 - A well balanced budget",
                                  value= "50/20/30",
                                  variable=budget_var)
-    option_3.grid(row=2, column=0, pady=20, padx=20, sticky="n")
+    option_3.grid(row=2, column=0, pady=20, padx=20, sticky="w")
 
     # Row 5: Apply button
 
@@ -88,5 +88,5 @@ def create_budget_settings_window(parent): # function determines what the comman
             font=("Bold",20),
             anchor="center"
             )
-    apply_button.grid(row=5, column=0, padx=20, pady=(0,20), columnspan=2)
+    apply_button.grid(row=5, column=0, padx=20, pady=(0,20), sticky= "nsew", columnspan=2)
 
