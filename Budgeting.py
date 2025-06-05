@@ -77,3 +77,16 @@ def create_budget_settings_window(parent): # function determines what the comman
                                  variable=budget_var)
     option_3.grid(row=2, column=0, pady=20, padx=20, sticky="n")
 
+    # Row 5: Apply button
+
+    apply_button = ctk.CTkButton(budget_window,
+            text="Apply", 
+            # command = expects the function reference not the result of a function call 
+            width = (75),
+            height = 20,
+            text_color="white",
+            font=("Bold",20),
+            anchor="center"
+            )
+    apply_button.grid(row=5, column=0, padx=20, pady=(0,20), columnspan=2)
+
